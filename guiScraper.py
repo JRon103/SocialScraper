@@ -1,7 +1,13 @@
 import tkinter as tk
 import requests
 from bs4 import BeautifulSoup
-
+   
+from selenium import webdriver 
+from selenium.webdriver.common.keys import Keys 
+import time
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.firefox.service import Service
+    
 def github(link):
     URL = link
     page = requests.get(URL)
@@ -32,11 +38,62 @@ def twitter(link):
     
     return "\n".join(textos)
 
+def linkedin(link):
+ 
+    # URL de la página que queremos rastrear
+   # url = "https://www.linkedin.com/in/maiky/"
+    url = link
+    print(url)
+    service = Service()
+    options = webdriver.FirefoxOptions()
+    options.add_argument("--headless")
+    options.headless = True 
+    driver = webdriver.Firefox(service=service, options=options)
+    # Iniciamos el controlador web. Los parámetros incluyen la ruta del controlador web.
+    
+    driver.get(url)
+    
+    # Esto es solo para asegurarnos de que la página se cargue
+    time.sleep(5)
+    
+    html = driver.page_source
+    
+    # Esto renderiza el código JavaScript y almacena toda la información en código HTML estático.
+    
+    # Ahora, podríamos aplicar BeautifulSoup al variable html
+    soup = BeautifulSoup(html, "html.parser")
+    script_element = soup.find("script", {"type": "application/ld+json"})
+    
+    # Verifica si se encontró el elemento
+    if script_element:
+        # Obtiene el contenido JSON como texto
+        json_text = script_element.string
+        
+        # Puedes cargar el JSON en un diccionario de Python
+        import json
+        data = json.loads(json_text)
+        
+        # Ahora 'data' contiene el JSON como un diccionario de Python
+        print(data)
+    else:
+        print("Elemento <script> no encontrado.")
+    
+    # Puedes acceder a los valores del JSON como un diccionario de Python
+    # Por ejemplo, para obtener el nombre:
+    nombre = data["@graph"][0]["name"]
+    print("Nombre:", nombre)
+    
+    driver.close() # cerrando el controlador web
+
+
 def mostrar_informacion():
     if opcion_var.get() == 1:
+        link = textbox1.get("1.0", "end-1c")
+        resultado = linkedin(link)
+    elif opcion_var.get() == 2:
         link = textbox2.get("1.0", "end-1c")
         resultado = github(link)
-    elif opcion_var.get() == 2:
+    elif opcion_var.get() == 3:
         link = textbox3.get("1.0", "end-1c")
         resultado = twitter(link)
     else:
@@ -44,12 +101,15 @@ def mostrar_informacion():
     
     label_info.config(text=resultado)
 
+
+
 # Crear una ventana principal
 ventana = tk.Tk()
-ventana.title("Interfaz con Tkinter")
+ventana.title("Social Scraper")
+
 
 # Etiquetas
-label1 = tk.Label(ventana, text="Texto 1:")
+label1 = tk.Label(ventana, text="URL de Linkedin:")
 label2 = tk.Label(ventana, text="URL de GitHub:")
 label3 = tk.Label(ventana, text="URL de Twitter:")
 
@@ -69,12 +129,13 @@ textbox3.grid(row=2, column=1)
 # Opción para elegir el sitio web (GitHub o Twitter)
 opcion_var = tk.IntVar()
 opcion_var.set(1)
-opcion_github = tk.Radiobutton(ventana, text="GitHub", variable=opcion_var, value=1)
-opcion_twitter = tk.Radiobutton(ventana, text="Twitter", variable=opcion_var, value=2)
+opcion_linkedin = tk.Radiobutton(ventana, text="Linkedin", variable=opcion_var, value=1)
+opcion_github= tk.Radiobutton(ventana, text="GitHub", variable=opcion_var, value=2)
+opcion_twitter = tk.Radiobutton(ventana, text="Twitter", variable=opcion_var, value=3)
 
-opcion_github.grid(row=3, column=0)
-opcion_twitter.grid(row=3, column=1)
-
+opcion_linkedin.grid(row=3, column=0)
+opcion_github.grid(row=3, column=1)
+opcion_twitter.grid(row=3, column=2)
 # Botón para mostrar información
 boton_mostrar = tk.Button(ventana, text="Mostrar Información", command=mostrar_informacion)
 boton_mostrar.grid(row=4, column=0, columnspan=2)
