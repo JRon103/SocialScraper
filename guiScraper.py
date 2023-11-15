@@ -3,10 +3,12 @@ import requests
 from bs4 import BeautifulSoup
    
 from selenium import webdriver 
-from selenium.webdriver.common.keys import Keys 
+#from selenium.webdriver.common.keys import Keys 
 import time
-from selenium.webdriver.chrome.service import Service
+#from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.firefox.service import Service
+
+import tkinter.messagebox as messagebox
     
 def github(link):
     URL = link
@@ -30,12 +32,32 @@ def github(link):
     return result
 
 def twitter(link):
-    page = link
-    soup = BeautifulSoup(page, "html.parser")
+    url = link
+    print(url)
+    service = Service()
+    options = webdriver.FirefoxOptions()
+   # options.add_argument("--headless")
+    #options.headless = True 
+    driver = webdriver.Firefox(service=service, options=options)
+    # Iniciamos el controlador web. Los parámetros incluyen la ruta del controlador web.
+    
+    driver.get(url)
+    
+    # Esto es solo para asegurarnos de que la página se cargue
+    time.sleep(8)
+    
+    #html = driver.page_source
+    html = driver.get(url)
+    # Esto renderiza el código JavaScript y almacena toda la información en código HTML estático.
+    
+    # Ahora, podríamos aplicar BeautifulSoup al variable html
+    soup = BeautifulSoup(html, "html.parser")
+   
     spans = soup.find_all("div", {"data-testid": "tweetText"})
     
     textos = [span.find("span").text for span in spans]
-    
+    print(soup)
+    print(textos)
     return "\n".join(textos)
 
 def linkedin(link):
@@ -85,10 +107,21 @@ def linkedin(link):
     
     driver.close() # cerrando el controlador web
 
-
+def mostrar_alarma(nivel_alarma):
+    if nivel_alarma == "bajo":
+        messagebox.showinfo("Alarma", "Nivel de alarma: Bajo")
+    elif nivel_alarma == "medio":
+        messagebox.showwarning("Alarma", "Nivel de alarma: Medio")
+    elif nivel_alarma == "alto":
+        messagebox.showerror("Alarma", "Nivel de alarma: Alto")
+    else:
+        messagebox.showinfo("Todo bien")
+        
+        
 def mostrar_informacion():
     if opcion_var.get() == 1:
         link = textbox1.get("1.0", "end-1c")
+      #  mostrar_alarma("bajo")
         resultado = linkedin(link)
     elif opcion_var.get() == 2:
         link = textbox2.get("1.0", "end-1c")
@@ -102,11 +135,9 @@ def mostrar_informacion():
     label_info.config(text=resultado)
 
 
-
 # Crear una ventana principal
 ventana = tk.Tk()
 ventana.title("Social Scraper")
-
 
 # Etiquetas
 label1 = tk.Label(ventana, text="URL de Linkedin:")
