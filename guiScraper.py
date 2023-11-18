@@ -5,8 +5,8 @@ from bs4 import BeautifulSoup
 from selenium import webdriver 
 #from selenium.webdriver.common.keys import Keys 
 import time
-#from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.chrome.service import Service
+#from selenium.webdriver.firefox.service import Service
 
 import tkinter.messagebox as messagebox
     
@@ -36,8 +36,8 @@ def twitter(link):
     print(url)
     service = Service()
     options = webdriver.FirefoxOptions()
-   # options.add_argument("--headless")
-    #options.headless = True 
+    options.add_argument("--headless")
+    options.headless = True 
     driver = webdriver.Firefox(service=service, options=options)
     # Iniciamos el controlador web. Los parámetros incluyen la ruta del controlador web.
     
@@ -70,7 +70,7 @@ def linkedin(link):
     options = webdriver.FirefoxOptions()
     options.add_argument("--headless")
     options.headless = True 
-    driver = webdriver.Firefox(service=service, options=options)
+    driver = webdriver.Chrome(service=service, options=options)
     # Iniciamos el controlador web. Los parámetros incluyen la ruta del controlador web.
     
     driver.get(url)

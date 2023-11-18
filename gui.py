@@ -1,3 +1,4 @@
+
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
@@ -5,20 +6,29 @@ from tkinter import messagebox
 import pandas as pd
 import matplotlib.pyplot as plt
 from textblob import TextBlob
-from wordcloud import WordCloud
+#from wordcloud import WordCloud
 from langdetect import detect
 from googletrans import Translator
 #linkedin
 import spacy
 #github
-import pandas as pd
+#import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 
+import os
+import requests
+from bs4 import BeautifulSoup
+from selenium import webdriver 
+import time
+from selenium.webdriver.chrome.service import Service
+import json
+'''
 def cargar_cv():
     cv_filename = filedialog.askopenfilename(filetypes=[("Archivos PDF", "*.pdf"), ("Todos los archivos", "*.*")])
     cv_entry.delete(0, tk.END)
     cv_entry.insert(0, cv_filename)
+'''
 
 def siguiente_campo(event):
     focus = ventana.focus_get()
@@ -38,19 +48,108 @@ def guardar_informacion():
         "GitHub": github_entry.get(),
         "Twitter": twitter_entry.get(),
     }
-    cv_path = cv_entry.get()
+    #cv_path = cv_entry.get()
 
     # Aquí puedes procesar la información según tus necesidades
     # Puedes imprimir o almacenar la información en una base de datos, por ejemplo
     print("Perfil Requerido:", perfil_requerido)
     print("Redes Sociales:", redes_sociales)
-    print("CV Path:", cv_path)
+    #print("CV Path:", cv_path)
+  
 
+  #funciones para extraer informacion--------------------------------------------------------------------------
+def github(link, output_file):
+    URL = link
+    page = requests.get(URL)
+    soup = BeautifulSoup(page.text, "html.parser")
+    
+    elements = soup.find_all('span', itemprop='programmingLanguage')
+    lenguajes_count = {}
+    # Extraer el texto de cada elemento encontrado
+    for element in elements:
+        lenguaje = element.text
+        if lenguaje in lenguajes_count:
+            lenguajes_count[lenguaje] += 1
+        else:
+            lenguajes_count[lenguaje] = 1
+    
+    result = ""
+    for lenguaje, count in lenguajes_count.items():
+        result += f"{lenguaje}: {count} veces\n"
+
+    with open(output_file, 'w', encoding='utf-8') as file:
+        file.write(result)
+
+def twitter(link, output_file):
+    url = link
+    print(url)
+    service = Service()
+    options = webdriver.FirefoxOptions()
+    options.add_argument("--headless")
+    options.headless = True 
+    driver = webdriver.Firefox(service=service, options=options)
+    
+    driver.get(url)
+    
+    time.sleep(8)
+    
+    html = driver.page_source
+    
+    soup = BeautifulSoup(html, "html.parser")
+    spans = soup.find_all("div", {"data-testid": "tweetText"})
+    
+    textos = [span.find("span").text for span in spans]
+    result = "\n".join(textos)
+
+    with open(output_file, 'w', encoding='utf-8') as file:
+        file.write(result)
+
+def linkedin(link, output_file):
+    url = link
+    print(url)
+    service = Service()
+    options = webdriver.FirefoxOptions()
+    options.add_argument("--headless")
+    options.headless = True 
+    driver = webdriver.Chrome(service=service, options=options)
+    
+    driver.get(url)
+    
+    time.sleep(5)
+    
+    html = driver.page_source
+    
+    soup = BeautifulSoup(html, "html.parser")
+    script_element = soup.find("script", {"type": "application/ld+json"})
+    
+    if script_element:
+        json_text = script_element.string
+        data = json.loads(json_text)
+        nombre = data["@graph"][0]["name"]
+        print("Nombre:", nombre)
+
+        with open(output_file, 'w', encoding='utf-8') as file:
+            file.write(json.dumps(data, indent=2))
+
+    driver.close()
 def extraer_datos_redes():
-    # Puedes colocar aquí la lógica para extraer datos de las redes sociales
-    messagebox.showinfo("Extracción de Datos", "Datos extraídos de las redes sociales")
 
+     # Obtiene los enlaces de LinkedIn, GitHub y Twitter desde las entradas de la interfaz gráfica
+    linkedinLink = linkedin_entry.get()
+    githubLink = github_entry.get()
+    twitterLink = twitter_entry.get()
+    # Puedes colocar aquí la lógica para extraer datos de las redes sociales
+    github_output_file = 'github_result.txt'
+    twitter_output_file = 'twitter_result.txt'
+    linkedin_output_file = 'linkedin_result.txt'
+
+    github(githubLink, github_output_file)
+    twitter(twitterLink, twitter_output_file)
+    linkedin(linkedinLink, linkedin_output_file)
+    messagebox.showinfo("Extracción de Datos", "Datos extraídos de las redes sociales")
+#----------------------------------------------------------------------------------------------------------
 def analizar_datos():
+    extraer_datos_redes()
     # Puedes colocar aquí la lógica para analizar los datos
     """Analisis de datos Twitter"""
     with open('datos_redes_sociales.txt', 'r', encoding='utf-8') as file:
