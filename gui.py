@@ -151,7 +151,7 @@ def analizar_datos():
     extraer_datos_redes()
     # Puedes colocar aquí la lógica para analizar los datos
     """Analisis de datos Twitter"""
-    with open('datos_redes_sociales.txt', 'r', encoding='utf-8') as file:
+    with open('linkedin_result.txt', 'r', encoding='utf-8') as file:
         mensajes = file.readlines()
 
 # Función para traducir un mensaje a inglés

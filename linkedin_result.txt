@@ -6,13 +6,13 @@
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Torre\u00f3n, Coahuila de Zaragoza, M\u00e9xico",
-        "addressCountry": "mx"
+        "addressCountry": "MX"
       },
       "alumniOf": [
         {
           "@type": "Organization",
           "name": "Proyecto Nutria",
-          "url": "https://www.linkedin.com/company/proyectonutria?trk=ppro_cprof",
+          "url": "https://mx.linkedin.com/company/proyectonutria",
           "member": {
             "@type": "OrganizationRole",
             "startDate": "2023-08",
@@ -22,7 +22,7 @@
         {
           "@type": "Organization",
           "name": "Meta",
-          "url": "https://www.linkedin.com/company/meta?trk=ppro_cprof",
+          "url": "https://www.linkedin.com/company/meta",
           "location": "Menlo Park, California, Estados Unidos",
           "member": {
             "@type": "OrganizationRole",
@@ -33,7 +33,7 @@
         {
           "@type": "Organization",
           "name": "Clever Cloud",
-          "url": "https://www.linkedin.com/company/clever-cloud-global?trk=ppro_cprof",
+          "url": "https://mx.linkedin.com/company/clever-cloud-global",
           "member": {
             "@type": "OrganizationRole",
             "startDate": "2023-01",
@@ -43,7 +43,7 @@
         {
           "@type": "Organization",
           "name": "omegaUp",
-          "url": "https://www.linkedin.com/company/omegaup?trk=ppro_cprof",
+          "url": "https://www.linkedin.com/company/omegaup",
           "member": {
             "@type": "OrganizationRole",
             "startDate": "2022-12",
@@ -53,7 +53,7 @@
         {
           "@type": "EducationalOrganization",
           "name": "Instituto Tecnol\u00f3gico de La Laguna",
-          "url": "https://www.linkedin.com/school/instituto-tecnol%C3%B3gico-de-la-laguna/",
+          "url": "https://mx.linkedin.com/school/instituto-tecnol%C3%B3gico-de-la-laguna/",
           "member": {
             "@type": "OrganizationRole",
             "startDate": "2021-08",
@@ -86,7 +86,7 @@
       ],
       "image": {
         "@type": "ImageObject",
-        "contentUrl": "https://media.licdn.com/dms/image/D5603AQFl01AuNeNmdg/profile-displayphoto-shrink_800_800/0/1694412103880?e=2147483647&v=beta&t=tLhJj7MC2CVy44FUVn4TetRQWP4xbR35TMEkm9XWU90"
+        "contentUrl": "https://media.licdn.com/dms/image/D5603AQFl01AuNeNmdg/profile-displayphoto-shrink_200_200/0/1694412103880?e=2147483647&v=beta&t=WBZ3LzNZtG119YlKG2tkzk28yw2T8ITLMUUpk6UMCh0"
       },
       "jobTitle": [],
       "name": "Miguel Angel Garza Carranza",
