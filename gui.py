@@ -29,6 +29,35 @@ def cargar_cv():
     cv_entry.insert(0, cv_filename)
 '''
 
+def generar_grafico(datos):
+    lenguajes = []
+    cantidades = []
+
+    for linea in datos:
+        partes = linea.strip().split(': ')
+        lenguaje = partes[0]
+        cantidad = int(partes[1].split()[0])
+        lenguajes.append(lenguaje)
+        cantidades.append(cantidad)
+
+    # Crear un diccionario con el nombre del lenguaje y la cantidad de veces
+    datos = {lenguajes[i]: cantidades[i] for i in range(len(lenguajes))}
+        
+    # Encontrar el lenguaje con la mayor cantidad
+    lenguaje_maximo = max(datos, key=datos.get)
+    maxima_cantidad = datos[lenguaje_maximo]
+        
+    # Crear un gráfico circular
+    plt.figure(figsize=(8, 8))
+    plt.pie(cantidades, labels=lenguajes, autopct='%1.1f%%', startangle=140)
+    plt.title('Lenguajes de programación utilizados por el candidato')
+
+    # Agregar texto en el centro con el lenguaje más usado
+    plt.text(0, 0, f'{lenguaje_maximo}\n{maxima_cantidad} proyectos', ha='center', va='center', fontsize=12, color='white')
+
+    plt.axis('equal')  # Asegurar que el gráfico sea un círculo
+    plt.show()
+
 def siguiente_campo(event):
     focus = ventana.focus_get()
     if focus == perfil_text:
@@ -48,6 +77,10 @@ def guardar_informacion():
         "Twitter": twitter_entry.get(),
     }
     #cv_path = cv_entry.get()
+    
+    # Guardar el perfil requerido en un archivo de texto
+    with open('perfil_requerido.txt', 'w', encoding='utf-8') as file:
+        file.write(perfil_requerido)
 
     # Aquí puedes procesar la información según tus necesidades
     # Puedes imprimir o almacenar la información en una base de datos, por ejemplo
@@ -149,6 +182,7 @@ def extraer_datos_redes():
 #----------------------------------------------------------------------------------------------------------
 def analizar_datos():
     extraer_datos_redes()
+    guardar_informacion()
     # Puedes colocar aquí la lógica para analizar los datos
     """Analisis de datos Twitter"""
     with open('linkedin_result.txt', 'r', encoding='utf-8') as file:
@@ -180,71 +214,53 @@ def analizar_datos():
     plt.ylabel('Frecuencia')
     plt.show()
 
-"""Analisis de datos Linkedin"""
-# Cargar el modelo de procesamiento de lenguaje natural de spaCy
-nlp = spacy.load("es_core_news_sm")  # Puedes usar un modelo específico para tu idioma
- 
-# Texto de ejemplo: Descripción del puesto y experiencia del candidato
-descripcion_puesto = "Buscamos un desarrollador de Python con experiencia en desarrollo web y al menos 2 años de experiencia."
-experiencia_candidato = "Desarrollador de Python con 3 años de experiencia en desarrollo web."
- 
-# Procesar la descripción del puesto y la experiencia del candidato
-doc_puesto = nlp(descripcion_puesto)
-doc_candidato = nlp(experiencia_candidato)
- 
-# Función para evaluar la similitud contextual
-def evaluar_similitud_contextual(doc1, doc2):
-	similitud = doc1.similarity(doc2)
-	return similitud
- 
-# Evaluar la similitud contextual entre la descripción del puesto y la experiencia del candidato
-similitud_contextual = evaluar_similitud_contextual(doc_puesto, doc_candidato)
- 
-# Establecer un umbral de similitud
-umbral_similitud = 0.7  # Puedes ajustar este umbral según tus criterios
- 
-# Evaluar si la experiencia del candidato es coherente con la descripción del puesto
-if similitud_contextual >= umbral_similitud:
-	print("La experiencia del candidato es coherente con la descripción del puesto.")
-else:
-	print("La experiencia del candidato no es coherente con la descripción del puesto.")
- 
-# Imprimir la similitud contextual (puede ser útil para fines de análisis)
-print(f"Similitud Contextual: {similitud_contextual:.2f}")
+    """Analisis de datos Linkedin"""
+    # Cargar el modelo de procesamiento de lenguaje natural de spaCy
+    nlp = spacy.load("es_core_news_sm")  # Puedes usar un modelo específico para tu idioma
+    
+    # Texto de ejemplo: Descripción del puesto y experiencia del candidato
+    #descripcion_puesto = "Buscamos un desarrollador de Python con experiencia en desarrollo web y al menos 2 años de experiencia."
+    with open('perfil_requerido.txt', 'r', encoding='utf-8') as file:
+        descripcion_puesto = file.read()
+    #experiencia_candidato = "Desarrollador de Python con 3 años de experiencia en desarrollo web."
+    with open('linkedin_result.txt', 'r', encoding='utf-8') as file:
+        experiencia_candidato = file.read()
+    
+    # Procesar la descripción del puesto y la experiencia del candidato
+    doc_puesto = nlp(descripcion_puesto)
+    doc_candidato = nlp(experiencia_candidato)
+    
+    # Función para evaluar la similitud contextual
+    def evaluar_similitud_contextual(doc1, doc2):
+        similitud = doc1.similarity(doc2)
+        return similitud
+    
+    # Evaluar la similitud contextual entre la descripción del puesto y la experiencia del candidato
+    similitud_contextual = evaluar_similitud_contextual(doc_puesto, doc_candidato)
+    
+    # Establecer un umbral de similitud
+    umbral_similitud = 0.7  # Puedes ajustar este umbral según tus criterios
+    
+    # Evaluar si la experiencia del candidato es coherente con la descripción del puesto
+    if similitud_contextual >= umbral_similitud:
+        print("La experiencia del candidato es coherente con la descripción del puesto.")
+    else:
+        print("La experiencia del candidato no es coherente con la descripción del puesto.")
+    
+    # Imprimir la similitud contextual (puede ser útil para fines de análisis)
+    print(f"Similitud Contextual: {similitud_contextual:.2f}")
 
 
-"""Analisis de datos GitHub"""
-# Datos de ejemplo: candidatos y requisitos del trabajo
-candidatos = pd.DataFrame({
-    'ID': [1, 2, 3],
-    'Experiencia': [
-        "Desarrollador de Python con 3 años de experiencia en desarrollo web.",
-        "Ingeniero de software con experiencia en Java y C++.",
-        "Programador junior con conocimientos de Python y JavaScript."
-    ]
-})
-
-requisitos_puesto = "Buscamos un desarrollador de Python con experiencia en desarrollo web y al menos 2 años de experiencia."
-
-# Preprocesamiento de texto
-tfidf_vectorizer = TfidfVectorizer()
-documentos = candidatos['Experiencia'].tolist() + [requisitos_puesto]
-matriz_tfidf = tfidf_vectorizer.fit_transform(documentos)
-
-# Calcular similitud de coseno entre la descripción del trabajo y las experiencias de los candidatos
-similitudes = cosine_similarity(matriz_tfidf[:-1], matriz_tfidf[-1:])
-
-# Calcular una puntuación de relevancia para cada candidato
-puntuaciones_relevancia = similitudes.flatten()
-
-# Asegurarse de que la longitud de puntuaciones_relevancia coincida con la longitud de candidatos
-candidatos['Puntuacion_Relevancia'] = puntuaciones_relevancia[:len(candidatos)]
-
-# Imprimir los resultados
-print(candidatos[['ID', 'Experiencia', 'Puntuacion_Relevancia']])
+    """Analisis de datos GitHub"""
+    # Leer los datos desde el archivo
+    with open('github_result.txt', 'r') as archivo:
+        datos = archivo.readlines()
+    # Llamar a la función para generar el gráfico
+    generar_grafico(datos)
 
 
-messagebox.showinfo("Análisis de Datos", "Datos analizados")
+
+    messagebox.showinfo("Análisis de Datos", "Datos analizados")
 
 
 
