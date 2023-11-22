@@ -1,125 +1,132 @@
 {
-  "@context": "http://schema.org",
-  "@graph": [
-    {
-      "@type": "Person",
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Torre\u00f3n, Coahuila de Zaragoza, M\u00e9xico",
-        "addressCountry": "MX"
-      },
-      "alumniOf": [
+    "public_identifier": "julian-villa-cruz-rodolfo103",
+    "profile_pic_url": null,
+    "background_cover_image_url": null,
+    "first_name": "Julian",
+    "last_name": "Villa Cruz",
+    "full_name": "Julian Villa Cruz",
+    "follower_count": 18,
+    "occupation": "Solutions Developer Engineer at M\u00e9trica M\u00f3vil",
+    "headline": "Estudiante en Sistemas computacionales",
+    "summary": null,
+    "country": "MX",
+    "country_full_name": "Mexico",
+    "city": null,
+    "state": null,
+    "experiences": [
         {
-          "@type": "Organization",
-          "name": "Proyecto Nutria",
-          "url": "https://mx.linkedin.com/company/proyectonutria",
-          "member": {
-            "@type": "OrganizationRole",
-            "startDate": "2023-08",
-            "endDate": "2023-10"
-          }
-        },
-        {
-          "@type": "Organization",
-          "name": "Meta",
-          "url": "https://www.linkedin.com/company/meta",
-          "location": "Menlo Park, California, Estados Unidos",
-          "member": {
-            "@type": "OrganizationRole",
-            "startDate": "2023-06",
-            "endDate": "2023-08"
-          }
-        },
-        {
-          "@type": "Organization",
-          "name": "Clever Cloud",
-          "url": "https://mx.linkedin.com/company/clever-cloud-global",
-          "member": {
-            "@type": "OrganizationRole",
-            "startDate": "2023-01",
-            "endDate": "2023-06"
-          }
-        },
-        {
-          "@type": "Organization",
-          "name": "omegaUp",
-          "url": "https://www.linkedin.com/company/omegaup",
-          "member": {
-            "@type": "OrganizationRole",
-            "startDate": "2022-12",
-            "endDate": "2023-06"
-          }
-        },
-        {
-          "@type": "EducationalOrganization",
-          "name": "Instituto Tecnol\u00f3gico de La Laguna",
-          "url": "https://mx.linkedin.com/school/instituto-tecnol%C3%B3gico-de-la-laguna/",
-          "member": {
-            "@type": "OrganizationRole",
-            "startDate": "2021-08",
-            "endDate": "2026-12"
-          }
-        },
-        {
-          "@type": "EducationalOrganization",
-          "name": "Luzac",
-          "member": {
-            "@type": "OrganizationRole",
-            "startDate": "2018-08",
-            "endDate": "2021-06"
-          }
+            "starts_at": {
+                "day": 1,
+                "month": 7,
+                "year": 2023
+            },
+            "ends_at": null,
+            "company": "M\u00e9trica M\u00f3vil",
+            "company_linkedin_profile_url": "https://www.linkedin.com/company/2321203/",
+            "title": "Solutions Developer Engineer",
+            "description": null,
+            "location": "Torre\u00f3n, Coahuila de Zaragoza, M\u00e9xico",
+            "logo_url": "https://media.licdn.com/dms/image/C560BAQH0MF1kYa8RoA/company-logo_400_400/0/1652199369321/metricamovil_logo?e=1708560000&v=beta&t=SoionC2N9H7NsQJ6mTA_E9HjYAxw3MNE-FQSDVVr2_4"
         }
-      ],
-      "awards": [
-        "24th place in \"Gran Premio de Mexico ICPC 2022\"",
-        "5th place in \"Coding Cup TecNM 2022\"",
-        "16th place in \u201d2022 Annual programming contest Donald Knuth\u201d",
-        "3th place in \"7\u00b0 ITS San Pedro Contest\"",
-        "135th place in \"Gran Premio de Mexico ICPC 2022\"",
-        "2th place in Google Kickstart Round B Mexican Top",
-        "9th place in Liga de Programaci\u00f3n - Fase 2",
-        "2th place in Entrance exam for my career (BE. in Computational Systems ITL).",
-        "Gold Medalist in Regional Mathematics Olympiad (ONMAPS).",
-        "Outstanding participation in the II Mexican Mathematical Olympiad (OMMEB).",
-        "Outstanding participation in the XVIII Mexican Mathematical Olympiad (ONMAPS).",
-        "Outstanding participation in the XXVI Pre-national Pre-university Mathematics Tournament."
-      ],
-      "image": {
-        "@type": "ImageObject",
-        "contentUrl": "https://media.licdn.com/dms/image/D5603AQFl01AuNeNmdg/profile-displayphoto-shrink_200_200/0/1694412103880?e=2147483647&v=beta&t=WBZ3LzNZtG119YlKG2tkzk28yw2T8ITLMUUpk6UMCh0"
-      },
-      "jobTitle": [],
-      "name": "Miguel Angel Garza Carranza",
-      "sameAs": "https://mx.linkedin.com/in/maiky",
-      "url": "https://mx.linkedin.com/in/maiky",
-      "memberOf": [],
-      "worksFor": [],
-      "knowsLanguage": [
+    ],
+    "education": [
         {
-          "@type": "Language",
-          "name": "Espa\u00f1ol"
+            "starts_at": {
+                "day": 1,
+                "month": 1,
+                "year": 2020
+            },
+            "ends_at": {
+                "day": 31,
+                "month": 12,
+                "year": 2024
+            },
+            "field_of_study": "Ingenier\u00eda de sistemas computacionales",
+            "degree_name": "Universitario",
+            "school": "Instituto Tecnol\u00f3gico de La Laguna",
+            "school_linkedin_profile_url": "https://www.linkedin.com/company/15094819/",
+            "description": null,
+            "logo_url": "https://media.licdn.com/dms/image/C560BAQHkBhS2lf4DyA/company-logo_400_400/0/1631370246661?e=1708560000&v=beta&t=rWV6fFG3iTXwkSiWpYp2h9pV9Vw35NttrTFTI6pp_vI",
+            "grade": null,
+            "activities_and_societies": null
         },
         {
-          "@type": "Language",
-          "name": "Ingl\u00e9s"
+            "starts_at": {
+                "day": 1,
+                "month": 1,
+                "year": 2016
+            },
+            "ends_at": {
+                "day": 31,
+                "month": 12,
+                "year": 2020
+            },
+            "field_of_study": "ninguna",
+            "degree_name": "Bachillerato",
+            "school": "UAL",
+            "school_linkedin_profile_url": null,
+            "description": null,
+            "logo_url": null,
+            "grade": null,
+            "activities_and_societies": null
         }
-      ],
-      "disambiguatingDescription": "",
-      "interactionStatistic": {
-        "@type": "InteractionCounter",
-        "interactionType": "https://schema.org/FollowAction",
-        "name": "Follows",
-        "userInteractionCount": 577
-      },
-      "description": "Currently studying Computer Systems at Instituto Tecnologico de la Laguna with a strong passion for web development, in learning new technologies and a competitive programming enthusiast.<br>Always Improving!"
+    ],
+    "languages": [],
+    "accomplishment_organisations": [],
+    "accomplishment_publications": [],
+    "accomplishment_honors_awards": [],
+    "accomplishment_patents": [],
+    "accomplishment_courses": [],
+    "accomplishment_projects": [],
+    "accomplishment_test_scores": [],
+    "volunteer_work": [],
+    "certifications": [],
+    "connections": null,
+    "people_also_viewed": [
+        {
+            "link": "https://www.linkedin.com/in/armando-morales-carmona-65bbb2203",
+            "name": "Armando Morales Carmona",
+            "summary": "Estudiante en Instituto Tecnol\u00f3gico de La Laguna",
+            "location": null
+        },
+        {
+            "link": "https://www.linkedin.com/in/jasielguillen",
+            "name": "Jasiel Guill\u00e9n",
+            "summary": "QA Tech Lead",
+            "location": null
+        },
+        {
+            "link": "https://www.linkedin.com/in/alejandro-mor%C3%A1n-253035220",
+            "name": "Alejandro Mor\u00e1n",
+            "summary": "Human Resourses",
+            "location": null
+        },
+        {
+            "link": "https://www.linkedin.com/in/kobura-quiroz-0116aa14b",
+            "name": "Kobura Quiroz",
+            "summary": "Estudiante en Instituto Tecnol\u00f3gico de La Laguna",
+            "location": null
+        }
+    ],
+    "recommendations": [],
+    "activities": [],
+    "similarly_named_profiles": [],
+    "articles": [],
+    "groups": [],
+    "skills": [],
+    "inferred_salary": {
+        "min": null,
+        "max": null
     },
-    {
-      "@type": "WebPage",
-      "url": "https://mx.linkedin.com/in/maiky",
-      "reviewedBy": {
-        "@type": "Person",
-        "name": "Miguel Angel Garza Carranza"
-      }
-    }
-  ]
+    "gender": null,
+    "birth_date": null,
+    "industry": null,
+    "extra": {
+        "github_profile_id": null,
+        "twitter_profile_id": null,
+        "facebook_profile_id": null
+    },
+    "interests": [],
+    "personal_emails": [],
+    "personal_numbers": []
 }
