@@ -137,7 +137,7 @@ def twitter(link, output_file):
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(result)
 
-def linkedin(link, output_file):
+'''def linkedin(link, output_file):
     url = link
     print(url)
     service = Service()
@@ -164,7 +164,28 @@ def linkedin(link, output_file):
         with open(output_file, 'w', encoding='utf-8') as file:
             file.write(json.dumps(data, indent=2))
 
-    driver.close()
+    driver.close()'''
+def  linkedin(link, output_file):
+    api_key = 'AUVMiXDdwmI0NrKONPnl8w'
+    headers = {'Authorization': 'Bearer ' + api_key}
+    api_endpoint = 'https://nubela.co/proxycurl/api/linkedin/company'
+    params = {
+        'url': 'https://www.linkedin.com/company/google/',
+        'resolve_numeric_id': 'true',
+        'categories': 'include',
+        'funding_data': 'include',
+        'extra': 'include',
+        'exit_data': 'include',
+        'skills': 'include',
+        'acquisitions': 'include',
+        'use_cache': 'if-present',
+    }
+    response = requests.get(api_endpoint,
+                            params=params,
+                            headers=headers)
+    formatted_data = json.dumps(response.json(), indent=4)
+    with open(output_file, 'w', encoding='utf-8') as file:
+        file.write(formatted_data)
 def extraer_datos_redes():
 
     # Obtiene los enlaces de LinkedIn, GitHub y Twitter desde las entradas de la interfaz gráfica
