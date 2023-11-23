@@ -2,20 +2,14 @@
 import tkinter as tk
 from tkinter import filedialog
 from tkinter import messagebox
-#Twitter
 import pandas as pd
 import matplotlib.pyplot as plt
 from textblob import TextBlob
-#from wordcloud import WordCloud
 from langdetect import detect
 from googletrans import Translator
-#linkedin
 import spacy
-#github
-#import pandas as pd
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
-
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver 
@@ -23,12 +17,6 @@ import time
 from selenium.webdriver.chrome.service import Service
 import json
 from datetime import datetime
-'''
-def cargar_cv():
-    cv_filename = filedialog.askopenfilename(filetypes=[("Archivos PDF", "*.pdf"), ("Todos los archivos", "*.*")])
-    cv_entry.delete(0, tk.END)
-    cv_entry.insert(0, cv_filename)
-'''
 
 def generar_grafico(datos):
     lenguajes = []
@@ -137,34 +125,6 @@ def twitter(link, output_file):
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(result)
 
-'''def linkedin(link, output_file):
-    url = link
-    print(url)
-    service = Service()
-    options = webdriver.FirefoxOptions()
-    options.add_argument("--headless")
-    options.headless = True 
-    driver = webdriver.Chrome(service=service, options=options)
-    
-    driver.get(url)
-    
-    time.sleep(5)
-    
-    html = driver.page_source
-    
-    soup = BeautifulSoup(html, "html.parser")
-    script_element = soup.find("script", {"type": "application/ld+json"})
-    
-    if script_element:
-        json_text = script_element.string
-        data = json.loads(json_text)
-        nombre = data["@graph"][0]["name"]
-        print("Nombre:", nombre)
-
-        with open(output_file, 'w', encoding='utf-8') as file:
-            file.write(json.dumps(data, indent=2))
-
-    driver.close()'''
 def  linkedin(link, output_file):
     api_key = 'AUVMiXDdwmI0NrKONPnl8w'
     headers = {'Authorization': 'Bearer ' + api_key}
@@ -335,17 +295,6 @@ def analizar_datos():
     
     messagebox.showinfo("Análisis de Datos", "Datos analizados")
 
-
-
-
-
-
-
-
-
-
-
-
 # Crear la ventana principal
 ventana = tk.Tk()
 ventana.title("Formulario de Candidato")
@@ -359,14 +308,6 @@ perfil_text.grid(row=0, column=1, columnspan=2, padx=10, pady=5)
 perfil_text.bind("<Return>", siguiente_campo)  # Enlazar la tecla Enter al cambio de campo
 
 
-#cv_label = tk.Label(ventana, text="Cargar CV:")
-#cv_label.grid(row=1, column=0, sticky=tk.W, padx=10, pady=5)
-#cv_entry = tk.Entry(ventana, width=40)
-#cv_entry.grid(row=1, column=1, padx=10, pady=5)
-"""
-cv_button = tk.Button(ventana, text="Guardar Perfil", command=cargar_cv)
-cv_button.grid(row=1, column=2, padx=5, pady=5)
-"""
 redes_sociales_label = tk.Label(ventana, text="Redes Sociales:")
 redes_sociales_label.grid(row=2, column=0, sticky=tk.W, padx=10, pady=5)
 
@@ -388,15 +329,8 @@ twitter_entry = tk.Entry(ventana, width=30)
 twitter_entry.grid(row=4, column=2, padx=10, pady=5)
 twitter_entry.bind("<Return>", siguiente_campo) 
 
-"""
-extraer_button = tk.Button(ventana, text="Extraer Datos", command=extraer_datos_redes)
-extraer_button.grid(row=5, column=2, padx=10, pady=5)
-"""
 analizar_button = tk.Button(ventana, text="Analizar Datos", command=analizar_datos)
 analizar_button.grid(row=6, column=2, padx=10, pady=5)
-"""
-guardar_button = tk.Button(ventana, text="Guardar Información", command=guardar_informacion)
-guardar_button.grid(row=6, column=2, columnspan=3, pady=10)
-"""
+
 # Iniciar el bucle principal de la interfaz gráfica
 ventana.mainloop()
