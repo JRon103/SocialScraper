@@ -22,6 +22,7 @@ from selenium import webdriver
 import time
 from selenium.webdriver.chrome.service import Service
 import json
+from datetime import datetime
 '''
 def cargar_cv():
     cv_filename = filedialog.askopenfilename(filetypes=[("Archivos PDF", "*.pdf"), ("Todos los archivos", "*.*")])
@@ -166,18 +167,18 @@ def linkedin(link, output_file):
     driver.close()
 def extraer_datos_redes():
 
-     # Obtiene los enlaces de LinkedIn, GitHub y Twitter desde las entradas de la interfaz gráfica
-    linkedinLink = linkedin_entry.get()
+    # Obtiene los enlaces de LinkedIn, GitHub y Twitter desde las entradas de la interfaz gráfica
+    # linkedinLink = linkedin_entry.get()
     githubLink = github_entry.get()
-    twitterLink = twitter_entry.get()
+    #twitterLink = twitter_entry.get()
     # Puedes colocar aquí la lógica para extraer datos de las redes sociales
     github_output_file = 'github_result.txt'
     twitter_output_file = 'twitter_result.txt'
     linkedin_output_file = 'linkedin_result.txt'
 
     github(githubLink, github_output_file)
-    twitter(twitterLink, twitter_output_file)
-    linkedin(linkedinLink, linkedin_output_file)
+    #twitter(twitterLink, twitter_output_file)
+    # linkedin(linkedinLink, linkedin_output_file)
     messagebox.showinfo("Extracción de Datos", "Datos extraídos de las redes sociales")
 #----------------------------------------------------------------------------------------------------------
 def analizar_datos():
@@ -185,7 +186,7 @@ def analizar_datos():
     guardar_informacion()
     # Puedes colocar aquí la lógica para analizar los datos
     """Analisis de datos Twitter"""
-    with open('linkedin_result.txt', 'r', encoding='utf-8') as file:
+    with open('twitter_result.txt', 'r', encoding='utf-8') as file:
         mensajes = file.readlines()
 
 # Función para traducir un mensaje a inglés
@@ -247,8 +248,23 @@ def analizar_datos():
             # Calcular una puntuación por duración (se podría ajustar con más criterios)
             starts_at = experience.get('starts_at', {})
             ends_at = experience.get('ends_at', {})
+            # Obtén la fecha y hora actuales
+            fecha_actual = datetime.now()
+
+            # Obtén el día, mes y año por separado
+            dia = fecha_actual.day
+            mes = fecha_actual.month
+            año = fecha_actual.year
+
+            # Imprime los valores por separado
+            print("Día:", dia)
+            print("Mes:", mes)
+            print("Año:", año)
+            
             if ends_at in None:
-                None
+                duration = (año - starts_at.get('year', 0)) * 12 + \
+                    (mes - starts_at.get('month', 0))
+
             else:
                 duration = (ends_at.get('year', 0) - starts_at.get('year', 0)) * 12 + \
                     (ends_at.get('month', 0) - starts_at.get('month', 0))

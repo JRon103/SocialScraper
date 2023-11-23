@@ -2,7 +2,7 @@ import json
 import matplotlib.pyplot as plt
 
 # Leer los datos del archivo JSON
-with open('linkedin_result.txt', 'r', encoding='utf-8') as file:
+with open('github_result.txt', 'r', encoding='utf-8') as file:
     json_data = file.read()
 
 # Parsear el JSON
