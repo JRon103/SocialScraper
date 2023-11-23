@@ -1,4 +1,2 @@
-PHP: 2 veces
-CSS: 1 veces
-C++: 3 veces
-Python: 2 veces
+Java: 26 times
+TypeScript: 4 times
