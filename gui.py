@@ -217,8 +217,8 @@ def analizar_datos():
 
     """Analisis de datos Linkedin"""
 
-    # Leer los datos del archivo JSON
-    with open('linkedin_result.txt', 'r', encoding='utf-8') as file:
+        # Leer los datos del archivo JSON
+    with open('jsonJulian.txt', 'r', encoding='utf-8') as file:
         json_data = file.read()
 
     # Parsear el JSON
@@ -226,13 +226,14 @@ def analizar_datos():
 
     # Experiencias laborales
     experiences = data.get('experiences', [])
-
+    print (experiences)
     # Definir los pesos para los roles
     weights = {
         "Software Engineer Intern": 30,
         "Engineering Intern": 25,
         "Collaborator": 20,
         "Committee": 15,
+        "Solutions Developer Engineer":30
     }
 
     total_weight = 0
@@ -244,32 +245,37 @@ def analizar_datos():
         if title in weights:
             weight = weights[title]
             total_weight += weight
-
+            
             # Calcular una puntuación por duración (se podría ajustar con más criterios)
             starts_at = experience.get('starts_at', {})
             ends_at = experience.get('ends_at', {})
-            # Obtén la fecha y hora actuales
-            fecha_actual = datetime.now()
+            print(": ",starts_at)
+            print("f: ",ends_at)
+            if ends_at == None:
+                
+                # Calcular una puntuación por duración (se podría ajustar con más criterios)
+                starts_at = experience.get('starts_at', {})
+                ends_at = experience.get('ends_at', {})
+                # Obtén la fecha y hora actuales
+                fecha_actual = datetime.now()
 
-            # Obtén el día, mes y año por separado
-            dia = fecha_actual.day
-            mes = fecha_actual.month
-            año = fecha_actual.year
+                # Obtén el día, mes y año por separado
+                dia = fecha_actual.day
+                mes = fecha_actual.month
+                año = fecha_actual.year
 
-            # Imprime los valores por separado
-            print("Día:", dia)
-            print("Mes:", mes)
-            print("Año:", año)
-            
-            if ends_at in None:
+                # Imprime los valores por separado
+                print("Día:", dia)
+                print("Mes:", mes)
+                print("Año:", año)
                 duration = (año - starts_at.get('year', 0)) * 12 + \
                     (mes - starts_at.get('month', 0))
-
             else:
                 duration = (ends_at.get('year', 0) - starts_at.get('year', 0)) * 12 + \
                     (ends_at.get('month', 0) - starts_at.get('month', 0))
 
             # Puntuación basada en la duración (una escala lineal simple para la demostración)
+            print("duracion: ",duration)
             score = min(duration / 12, 1) * weight  # Limitar la puntuación a un máximo de weight
             total_score += score
 
@@ -297,7 +303,6 @@ def analizar_datos():
     plt.show()
 
     print(f"Evaluación del perfil: {evaluation:.2f}")
-
 
 
     """Analisis de datos GitHub"""
