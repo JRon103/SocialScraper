@@ -1,15 +1,12 @@
 # Importing required libraries
 import tkinter as tk
-from tkinter import filedialog
 from tkinter import messagebox
 import pandas as pd
 import matplotlib.pyplot as plt
 from textblob import TextBlob
 from langdetect import detect
 from googletrans import Translator
-import spacy
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.metrics.pairwise import cosine_similarity
+
 import requests
 from bs4 import BeautifulSoup
 from selenium import webdriver 
@@ -135,13 +132,22 @@ def linkedin(link, output_file):
     
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(formatted_data)
+
 # Function to extract data from social media
 def extract_social_media_data():
+    
+    github(github_link, github_output_file)
     github_link = github_entry.get()
     github_output_file = 'github_result.txt'
 
-    github(github_link, github_output_file)
-    
+    linkedin(linkedin_link, linkedin_output_file)
+    linkedin_link = linkedin_entry.get()
+    linkedin_output_file = 'linkedin_result.txt'
+
+    twitter(twitter_link, twitter_output_file)
+    twitter_link = twitter_entry.get()
+    twitter_output_file = 'twitter_result.txt'
+
     messagebox.showinfo("Data Extraction", "Data extracted from social media")
     #----------------------------------------------------------------------------------------------------------
 def analyze_data():
