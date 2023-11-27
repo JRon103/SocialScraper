@@ -113,7 +113,7 @@ def twitter(link, output_file):
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(result)
 def linkedin(link, output_file):
-    api_key = 'AUVMiXDdwmI0NrKONPnl8w'
+    api_key = 'Lft06RYN092hZtzBITokYA'
     headers = {'Authorization': 'Bearer ' + api_key}
     api_endpoint = 'https://nubela.co/proxycurl/api/linkedin/company'
     params = {
@@ -246,7 +246,6 @@ def analyze_data():
 
     generate_chart(data)
     messagebox.showinfo("Data Analysis", f"Candidate coincidence: {evaluation:.2f}" )
-
 # Create the main window
 window = tk.Tk()
 window.title("Candidate Form")
@@ -266,19 +265,19 @@ linkedin_label = tk.Label(window, text="LinkedIn:")
 linkedin_label.grid(row=2, column=1, sticky=tk.W, padx=10, pady=5)
 linkedin_entry = tk.Entry(window, width=30)
 linkedin_entry.grid(row=2, column=2, padx=10, pady=5)
-linkedin_entry.bind("<Return>", next_field) 
+linkedin_entry.insert(0, "https://www.linkedin.com/in/maiky/")  # Set a default value or placeholder
 
 github_label = tk.Label(window, text="GitHub:")
 github_label.grid(row=3, column=1, sticky=tk.W, padx=10, pady=5)
 github_entry = tk.Entry(window, width=30)
 github_entry.grid(row=3, column=2, padx=10, pady=5)
-github_entry.bind("<Return>", next_field) 
+github_entry.insert(0, "https://github.com/axlRoman?tab=repositories")  # Set a default value or placeholder
 
 twitter_label = tk.Label(window, text="Twitter:")
 twitter_label.grid(row=4, column=1, sticky=tk.W, padx=10, pady=5)
 twitter_entry = tk.Entry(window, width=30)
 twitter_entry.grid(row=4, column=2, padx=10, pady=5)
-twitter_entry.bind("<Return>", next_field) 
+twitter_entry.insert(0, "https://twitter.com/JRon103")  # Set a default value or placeholder
 
 analyze_button = tk.Button(window, text="Analyze Data", command=analyze_data)
 analyze_button.grid(row=6, column=2, padx=10, pady=5)
