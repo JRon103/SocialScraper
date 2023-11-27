@@ -136,18 +136,18 @@ def linkedin(link, output_file):
 # Function to extract data from social media
 def extract_social_media_data():
     
-    github(github_link, github_output_file)
     github_link = github_entry.get()
     github_output_file = 'github_result.txt'
-
-    linkedin(linkedin_link, linkedin_output_file)
+    github(github_link, github_output_file)
+    
     linkedin_link = linkedin_entry.get()
     linkedin_output_file = 'linkedin_result.txt'
-
-    twitter(twitter_link, twitter_output_file)
+    #linkedin(linkedin_link, linkedin_output_file)
+    
     twitter_link = twitter_entry.get()
     twitter_output_file = 'twitter_result.txt'
-
+    #twitter(twitter_link, twitter_output_file)
+    
     messagebox.showinfo("Data Extraction", "Data extracted from social media")
     #----------------------------------------------------------------------------------------------------------
 def analyze_data():
@@ -245,7 +245,7 @@ def analyze_data():
         data = file.readlines()
 
     generate_chart(data)
-    messagebox.showinfo("Data Analysis", "Data analyzed")
+    messagebox.showinfo("Data Analysis", f"Candidate coincidence: {evaluation:.2f}" )
 
 # Create the main window
 window = tk.Tk()
