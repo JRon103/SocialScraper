@@ -1,5 +1,4 @@
-Java: 1 veces
-Python: 3 veces
-PHP: 3 veces
-C++: 3 veces
-CSS: 1 veces
+PHP: 2 times
+CSS: 1 times
+C++: 3 times
+Python: 2 times

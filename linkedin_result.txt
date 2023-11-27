@@ -1,51 +1,109 @@
 {
-    "public_identifier": "julian-villa-cruz-rodolfo103",
-    "profile_pic_url": null,
-    "background_cover_image_url": null,
-    "first_name": "Julian",
-    "last_name": "Villa Cruz",
-    "full_name": "Julian Villa Cruz",
-    "follower_count": 18,
-    "occupation": "Solutions Developer Engineer at M\u00e9trica M\u00f3vil",
-    "headline": "Estudiante en Sistemas computacionales",
-    "summary": null,
+    "public_identifier": "maiky",
+    "profile_pic_url": "https://media.licdn.com/dms/image/D5603AQFl01AuNeNmdg/profile-displayphoto-shrink_400_400/0/1694412103880?e=1706140800&v=beta&t=o7oBHCjnhhDya-R2rgUDdKfZ13m44FFxZ5sdp26hjBM",
+    "background_cover_image_url": "https://media.licdn.com/dms/image/D5616AQEOAF6UjN5eqA/profile-displaybackgroundimage-shrink_200_800/0/1667696478427?e=1706140800&v=beta&t=l_diwt7r-p-FWoPaDJGRTJIlxWIXwdSm4MGzOFmgFZY",
+    "first_name": "Miguel Angel",
+    "last_name": "Garza Carranza",
+    "full_name": "Miguel Angel Garza Carranza",
+    "follower_count": 577,
+    "occupation": "Collaborator at Proyecto Nutria",
+    "headline": "Former MetaU Engineering Intern @ Meta | CS Student at Instituto Tecnol\u00f3gico de la Laguna",
+    "summary": "Currently studying Computer Systems at Instituto Tecnologico de la Laguna with a strong passion for web development, in learning new technologies and a competitive programming enthusiast.\nAlways Improving!",
     "country": "MX",
     "country_full_name": "Mexico",
-    "city": null,
-    "state": null,
+    "city": "Torre\u00c3\u00b3n",
+    "state": "Coahuila",
     "experiences": [
         {
             "starts_at": {
                 "day": 1,
-                "month": 7,
+                "month": 8,
                 "year": 2023
             },
-            "ends_at": null,
-            "company": "M\u00e9trica M\u00f3vil",
-            "company_linkedin_profile_url": "https://www.linkedin.com/company/2321203/",
-            "title": "Solutions Developer Engineer",
+            "ends_at": {
+                "day": 31,
+                "month": 10,
+                "year": 2023
+            },
+            "company": "Proyecto Nutria",
+            "company_linkedin_profile_url": "https://www.linkedin.com/company/71101748/",
+            "title": "Collaborator",
             "description": null,
-            "location": "Torre\u00f3n, Coahuila de Zaragoza, M\u00e9xico",
-            "logo_url": "https://media.licdn.com/dms/image/C560BAQH0MF1kYa8RoA/company-logo_400_400/0/1652199369321/metricamovil_logo?e=1708560000&v=beta&t=SoionC2N9H7NsQJ6mTA_E9HjYAxw3MNE-FQSDVVr2_4"
+            "location": null,
+            "logo_url": "https://media.licdn.com/dms/image/C4E0BAQH9ueQBhLoSrw/company-logo_400_400/0/1630654059318?e=1708560000&v=beta&t=UNlusF00--Srw6F6ByAvkRapm3-xBjFRJvkEZ6QMGZA"
+        },
+        {
+            "starts_at": {
+                "day": 1,
+                "month": 6,
+                "year": 2023
+            },
+            "ends_at": {
+                "day": 31,
+                "month": 8,
+                "year": 2023
+            },
+            "company": "Meta",
+            "company_linkedin_profile_url": "https://www.linkedin.com/company/10667/",
+            "title": "MetaU Engineering Intern ",
+            "description": null,
+            "location": "Menlo Park, California, Estados Unidos \u00b7 On-site",
+            "logo_url": "https://media.licdn.com/dms/image/C4E0BAQFdNatYGiBelg/company-logo_400_400/0/1636138754252/facebook_logo?e=1708560000&v=beta&t=y6jYeSIrHAL2-CBD3hMuWKw53YFr0KrS-sO8EaUQOQI"
+        },
+        {
+            "starts_at": {
+                "day": 1,
+                "month": 12,
+                "year": 2022
+            },
+            "ends_at": {
+                "day": 30,
+                "month": 6,
+                "year": 2023
+            },
+            "company": "omegaUp",
+            "company_linkedin_profile_url": "https://www.linkedin.com/company/16244586/",
+            "title": "Committee @OFMI",
+            "description": null,
+            "location": "Remote",
+            "logo_url": "https://media.licdn.com/dms/image/C4D0BAQGXXOaMY_Ef2Q/company-logo_400_400/0/1631336258136?e=1708560000&v=beta&t=Xcxw_2bqxoL4c7pJ5JidTVyZK8-ec8x1-aNfTkoXUzU"
+        },
+        {
+            "starts_at": {
+                "day": 1,
+                "month": 1,
+                "year": 2023
+            },
+            "ends_at": {
+                "day": 30,
+                "month": 6,
+                "year": 2023
+            },
+            "company": "Clever Cloud",
+            "company_linkedin_profile_url": "https://www.linkedin.com/company/65855204/",
+            "title": "Software Engineer Intern",
+            "description": null,
+            "location": "Remote",
+            "logo_url": "https://media.licdn.com/dms/image/C4E0BAQG_oLPnpboHZw/company-logo_400_400/0/1630641400126?e=1708560000&v=beta&t=vtCP4lq2JmtvlB4-NHdz7qKnu9Ei_vQjssK_QbEnJjU"
         }
     ],
     "education": [
         {
             "starts_at": {
                 "day": 1,
-                "month": 1,
-                "year": 2020
+                "month": 8,
+                "year": 2021
             },
             "ends_at": {
                 "day": 31,
                 "month": 12,
-                "year": 2024
+                "year": 2026
             },
-            "field_of_study": "Ingenier\u00eda de sistemas computacionales",
-            "degree_name": "Universitario",
+            "field_of_study": null,
+            "degree_name": "Bachelor of Engineering in Computer Systems",
             "school": "Instituto Tecnol\u00f3gico de La Laguna",
             "school_linkedin_profile_url": "https://www.linkedin.com/company/15094819/",
-            "description": null,
+            "description": "Skills: Java",
             "logo_url": "https://media.licdn.com/dms/image/C560BAQHkBhS2lf4DyA/company-logo_400_400/0/1631370246661?e=1708560000&v=beta&t=rWV6fFG3iTXwkSiWpYp2h9pV9Vw35NttrTFTI6pp_vI",
             "grade": null,
             "activities_and_societies": null
@@ -53,17 +111,17 @@
         {
             "starts_at": {
                 "day": 1,
-                "month": 1,
-                "year": 2016
+                "month": 8,
+                "year": 2018
             },
             "ends_at": {
-                "day": 31,
-                "month": 12,
-                "year": 2020
+                "day": 30,
+                "month": 6,
+                "year": 2021
             },
-            "field_of_study": "ninguna",
-            "degree_name": "Bachillerato",
-            "school": "UAL",
+            "field_of_study": null,
+            "degree_name": "High School Diploma",
+            "school": "Luzac",
             "school_linkedin_profile_url": null,
             "description": null,
             "logo_url": null,
@@ -71,62 +129,147 @@
             "activities_and_societies": null
         }
     ],
-    "languages": [],
+    "languages": [
+        "Espa\u00f1ol",
+        "Ingl\u00e9s"
+    ],
     "accomplishment_organisations": [],
     "accomplishment_publications": [],
-    "accomplishment_honors_awards": [],
-    "accomplishment_patents": [],
-    "accomplishment_courses": [],
-    "accomplishment_projects": [],
-    "accomplishment_test_scores": [],
-    "volunteer_work": [],
-    "certifications": [],
-    "connections": null,
-    "people_also_viewed": [
+    "accomplishment_honors_awards": [
         {
-            "link": "https://www.linkedin.com/in/armando-morales-carmona-65bbb2203",
-            "name": "Armando Morales Carmona",
-            "summary": "Estudiante en Instituto Tecnol\u00f3gico de La Laguna",
-            "location": null
+            "title": "24th place in \"Gran Premio de Mexico ICPC 2022\"",
+            "issuer": "ICPC",
+            "issued_on": {
+                "day": 1,
+                "month": 10,
+                "year": 2022
+            },
+            "description": "Participated in the \u201dGrand Prix of Mexico (ICPC) 2022\u201d w/ the team EspantaBugs, ranked 24 out of 295 teams."
         },
         {
-            "link": "https://www.linkedin.com/in/jasielguillen",
-            "name": "Jasiel Guill\u00e9n",
-            "summary": "QA Tech Lead",
-            "location": null
-        },
-        {
-            "link": "https://www.linkedin.com/in/alejandro-mor%C3%A1n-253035220",
-            "name": "Alejandro Mor\u00e1n",
-            "summary": "Human Resourses",
-            "location": null
-        },
-        {
-            "link": "https://www.linkedin.com/in/kobura-quiroz-0116aa14b",
-            "name": "Kobura Quiroz",
-            "summary": "Estudiante en Instituto Tecnol\u00f3gico de La Laguna",
-            "location": null
+            "title": "5th place in \"Coding Cup TecNM 2022\"",
+            "issuer": "ITSUR",
+            "issued_on": {
+                "day": 1,
+                "month": 10,
+                "year": 2022
+            },
+            "description": "Participated in the \u201dCoding Cup TecNM 2022\u201d w/ the team EspantaBugs, ranked 5 out of 684 teams."
         }
     ],
+    "accomplishment_patents": [],
+    "accomplishment_courses": [],
+    "accomplishment_projects": [
+        {
+            "starts_at": {
+                "day": 1,
+                "month": 3,
+                "year": 2022
+            },
+            "ends_at": null,
+            "title": "Reference for Competitive Programming",
+            "description": "Collection of classical algorithms and data-structures implementation for competitive programming\ninvolving distinct areas such as graphs, geometry, strings, number theory, and combinatorics.",
+            "url": "https://github.com/maikyh/references"
+        },
+        {
+            "starts_at": {
+                "day": 1,
+                "month": 5,
+                "year": 2022
+            },
+            "ends_at": {
+                "day": 31,
+                "month": 7,
+                "year": 2022
+            },
+            "title": "Pacafy",
+            "description": "\u2022 Created a full-stack E-Commerce web app with React, JavaScript, and GraphQL.\n\u2022 Managed the authentication part with, storing the data in non-relational databases.\n\u2022 Added the processing of credit card payments for merchants with Stripe.",
+            "url": "https://github.com/maikyh/Pacafy"
+        }
+    ],
+    "accomplishment_test_scores": [],
+    "volunteer_work": [
+        {
+            "starts_at": {
+                "day": 1,
+                "month": 9,
+                "year": 2022
+            },
+            "ends_at": null,
+            "title": "Founder",
+            "cause": "Science and Technology",
+            "company": "Club de Programaci\u00f3n Competitiva ITLag",
+            "company_linkedin_profile_url": "https://www.linkedin.com/company/89775572/",
+            "description": "\u2022 Designed the roadmap and currently managing the discord and social media.\n\u2022 Improving the knowledge of 50+ members by teaching C++ and basic algorithms.",
+            "logo_url": "https://media.licdn.com/dms/image/D560BAQH910WXLI0vOA/company-logo_400_400/0/1667694316073?e=1708560000&v=beta&t=hX1shZdbk0fwr431_tcRRrfuKwxOdQ9oc1AsdIIdzjk"
+        },
+        {
+            "starts_at": {
+                "day": 1,
+                "month": 2,
+                "year": 2022
+            },
+            "ends_at": null,
+            "title": "Member",
+            "cause": "Science and Technology",
+            "company": "Club de Algoritmia ESCOM",
+            "company_linkedin_profile_url": "https://www.linkedin.com/company/69412762/",
+            "description": "\u2022 Learnt a great diversity of algorithms such as Dijkstra, Kruskal, and Floyd Warshall that improved my thinking process.",
+            "logo_url": "https://media.licdn.com/dms/image/C4E0BAQHg2IQtutCx4w/company-logo_400_400/0/1630638695444?e=1708560000&v=beta&t=yJj_3zqPY7W215y9Ec3qqLUkfm7bpinDfybiZQrR5W8"
+        }
+    ],
+    "certifications": [
+        {
+            "starts_at": null,
+            "ends_at": null,
+            "name": "ICPC ID",
+            "license_number": "Q0Y4X0EQKWRX",
+            "display_source": "icpc.global",
+            "authority": "ICPC - International Collegiate Programming Contest",
+            "url": "https://icpc.global/ICPCID/Q0Y4X0EQKWRX"
+        }
+    ],
+    "connections": null,
+    "people_also_viewed": [],
     "recommendations": [],
     "activities": [],
     "similarly_named_profiles": [],
     "articles": [],
-    "groups": [],
-    "skills": [],
+    "groups": [
+        {
+            "profile_pic_url": "https://media.licdn.com/dms/image/C5607AQFO-fto2EJ1cg/group-logo_image-shrink_400x400/0/1631008161791?e=1701223200&v=beta&t=pAiYjPcCSVqxvmg9opMLTISmjlidJf155V5XQb5xdB0",
+            "name": "Microsoft University Recruiting Team",
+            "url": "https://www.linkedin.com/groups/12125564"
+        },
+        {
+            "profile_pic_url": "https://media.licdn.com/dms/image/C5607AQHKUvNKXqQy6w/group-logo_image-shrink_48x48/0/1631002840410?e=1701223200&v=beta&t=IINx0PV-R3D1AHBnkbpgRWceg0m9K0YXUCUktAFqWMY",
+            "name": "zerotomastery.io",
+            "url": "https://www.linkedin.com/groups/12121940"
+        }
+    ],
+    "skills": [
+        "C++",
+        "JavaScript"
+    ],
     "inferred_salary": {
         "min": null,
-        "max": null
+        "max": 20000.0
     },
-    "gender": null,
+    "gender": "male",
     "birth_date": null,
-    "industry": null,
+    "industry": "information technology and services",
     "extra": {
         "github_profile_id": null,
-        "twitter_profile_id": null,
+        "twitter_profile_id": "twitter.com/vj_maiky",
         "facebook_profile_id": null
     },
-    "interests": [],
+    "interests": [
+        "environment",
+        "mobile testing",
+        "music",
+        "snooker",
+        "watching tennis"
+    ],
     "personal_emails": [],
     "personal_numbers": []
 }
