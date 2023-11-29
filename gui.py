@@ -113,7 +113,7 @@ def twitter(link, output_file):
     with open(output_file, 'w', encoding='utf-8') as file:
         file.write(result)
 def linkedin(link, output_file):
-    api_key = 'AUVMiXDdwmI0NrKONPnl8w'
+    api_key = 'A3QR7azG0DymmB9zT0eCGw'
     headers = {'Authorization': 'Bearer ' + api_key}
     api_endpoint = 'https://nubela.co/proxycurl/api/linkedin/company'
     params = {
@@ -142,7 +142,7 @@ def extract_social_media_data():
     
     linkedin_link = linkedin_entry.get()
     linkedin_output_file = 'linkedin_result.txt'
-    #linkedin(linkedin_link, linkedin_output_file)
+    linkedin(linkedin_link, linkedin_output_file)
     
     twitter_link = twitter_entry.get()
     twitter_output_file = 'twitter_result.txt'
@@ -249,7 +249,7 @@ def analyze_data():
 
 # Create the main window
 window = tk.Tk()
-window.title("Candidate Form")
+window.title("SocialScraper")
 
 # Create and place elements in the window
 profile_label = tk.Label(window, text="Required Profile:")
